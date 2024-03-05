@@ -10,7 +10,7 @@ export class PostsListComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.api.getPosts(1).subscribe((posts) => {
+    this.api.getPosts().subscribe((posts) => {
       console.log(posts);
 
     })
