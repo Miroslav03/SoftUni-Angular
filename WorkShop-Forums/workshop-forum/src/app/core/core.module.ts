@@ -15,8 +15,8 @@ import { UserRoutingModule } from '../user/user-routing.module';
     ErrorPageComponent
   ],
   imports: [
-    CommonModule, RouterModule,UserRoutingModule
+    CommonModule, RouterModule, UserRoutingModule
   ],
-  exports: [HeaderComponent, FooterComponent]
+  exports: [HeaderComponent, FooterComponent, HomeComponent]
 })
 export class CoreModule { }

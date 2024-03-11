@@ -12,6 +12,7 @@ export interface User {
 }
 
 export interface UserForAuth {
+    id:string,
     firstName: string,
     emial: string,
     phone: string,
