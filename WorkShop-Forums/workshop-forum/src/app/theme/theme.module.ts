@@ -4,6 +4,8 @@ import { NewThemeComponent } from './new-theme/new-theme.component';
 import { CurrentThemeComponent } from './current-theme/current-theme.component';
 import { ThemesListComponent } from './themes-list/themes-list.component';
 import { ThemeRoutingModule } from './theme-routing.module';
+import { MainComponent } from './main/main.component';
+import { PostsListComponent } from './posts-list/posts-list.component';
 
 
 
@@ -11,7 +13,9 @@ import { ThemeRoutingModule } from './theme-routing.module';
   declarations: [
     NewThemeComponent,
     CurrentThemeComponent,
-    ThemesListComponent
+    ThemesListComponent,
+    PostsListComponent,
+    MainComponent,
   ],
   imports: [
     CommonModule,
