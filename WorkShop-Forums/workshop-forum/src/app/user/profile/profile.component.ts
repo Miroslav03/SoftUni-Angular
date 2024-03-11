@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserService } from '../user-service.service';
+import { UserForAuth } from 'src/app/types/user';
 
 @Component({
   selector: 'app-profile',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
+  userData: UserForAuth | undefined
+
+  constructor(private userService: UserService) {
+    this.userData = this.userService.user || undefined;
+  }
 }

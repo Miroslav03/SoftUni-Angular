@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { UserRoutingModule } from '../user/user-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     ErrorPageComponent
   ],
   imports: [
-    CommonModule, RouterModule
+    CommonModule, RouterModule,UserRoutingModule
   ],
   exports: [HeaderComponent, FooterComponent]
 })
