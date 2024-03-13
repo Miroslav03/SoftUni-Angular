@@ -1,0 +1,1 @@
+export const CONST_EMAIL_DOMAINS = ['bg', 'com']
