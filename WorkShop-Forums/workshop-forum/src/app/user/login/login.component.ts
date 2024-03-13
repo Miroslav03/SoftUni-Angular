@@ -17,4 +17,7 @@ export class LoginComponent {
     this.routes.navigate(['/home'])
   }
 
+  handleLogin() {
+
+  }
 }
