@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-theme.component.css']
 })
 export class NewThemeComponent {
+  constructor() { }
 
+  handleNewThemeForm() {
+
+  }
 }

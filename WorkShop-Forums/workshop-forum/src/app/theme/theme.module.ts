@@ -6,9 +6,9 @@ import { ThemesListComponent } from './themes-list/themes-list.component';
 import { ThemeRoutingModule } from './theme-routing.module';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { MainComponent } from './main/main.component';
-import { HomeComponent } from '../core/home/home.component';
 import { CoreModule } from '../core/core.module';
 import { ThemeContentComponent } from './theme-content/theme-content.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +24,8 @@ import { ThemeContentComponent } from './theme-content/theme-content.component';
   imports: [
     CommonModule,
     ThemeRoutingModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ],
 
 })
