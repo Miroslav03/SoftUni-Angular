@@ -10,8 +10,8 @@ import { UserService } from 'src/app/user/user-service.service';
 })
 export class HeaderComponent {
 
-  get firstName(): string {
-    return this.userService.user?.firstName || '';
+  get username(): string {
+    return this.userService.user?.username || '';
   }
   get isLoggedIn(): boolean {
     return !!this.userService.isLogged;

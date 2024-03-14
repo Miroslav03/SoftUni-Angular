@@ -1,18 +1,56 @@
-<div class="container">
+<div class="container" *ngIf="!isEditClicked">
     <div class="profile"><img src="./profile.png" alt="default user">
         <h3>User Info:</h3>
         <div class="flex">
             <p>Username: </p>
-            <p *ngIf="userData">{{userData.firstName}}</p>
+            <p *ngIf="userData">{{user?.username}}</p>
         </div>
         <div class="flex">
             <p>Email: </p>
-            <p *ngIf="userData">{{userData.emial}}</p>
+            <p *ngIf="userData">{{user?.email}}</p>
         </div>
         <div class="flex">
             <p>Phone: </p>
-            <p *ngIf="userData">{{userData.phone}}</p>
+            <p *ngIf="userData">{{user?.phone}}</p>
         </div>
-        <button class="edit-button">Edit</button>
+        <button class="edit-button" (click)="handleEdit()">Edit</button>
+    </div>
+</div>
+
+<div class="container" *ngIf="isEditClicked">
+    <div class="profile">
+        <img src="./profile.png" alt="default user">
+        <h3>User Info:</h3>
+        <form [formGroup]="form">
+            <div class="flex">
+                <p>Username: </p>
+                <input type="text" name="username" id="username" [value]="user?.username" formControlName="username">
+            </div>
+            <ng-container *ngIf="form.get('username')?.touched">
+                <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required</p>
+                <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 5
+                    characters!</p>
+            </ng-container>
+
+            <div class="flex">
+                <p>Email: </p>
+                <input type="email" name="email" id="email" [value]="user?.email" formControlName="email">
+            </div>
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required</p>
+                <p class="error" *ngIf="form.get('email')?.errors?.['appEmail']">Email is invalid!</p>
+            </ng-container>
+            <div class="flex">
+                <p>Phone: </p>
+                <div>
+                    <select name="select-tel" id="select-tel" class="">
+                        <option value="00359">+359</option>
+                    </select>
+                    <input type="text" name="phone" id="phone" [value]="user?.phone" formControlName="phone">
+                </div>
+            </div>
+            <button class="red-button" (click)="handleEdit()">Cancel</button>
+            <button class="green-button" (click)='saveChanges()'>Save</button>
+        </form>
     </div>
 </div>

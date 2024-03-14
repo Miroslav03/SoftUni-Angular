@@ -24,8 +24,8 @@ export class UserService {
   login() {
     this.user = {
       id:'5fa64a9f2183ce1728ff371a',
-      firstName: 'Miro',
-      emial: 'miro@abv.bg',
+      username: 'Miro',
+      email: 'miroslav@abv.bg',
       phone: 'xxx-xxx-xxxx',
       password: '123321'
     };
