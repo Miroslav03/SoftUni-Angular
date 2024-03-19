@@ -1,40 +1,30 @@
 import { Injectable } from '@angular/core';
 import { UserForAuth } from '../types/user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
-  user: UserForAuth | undefined;
-  USER_KEY = '[user]';
+  user: UserForAuth | undefined = undefined;
 
   get isLogged(): boolean {
     return !!this.user;
   }
 
-  constructor() {
-    try {
-      const lsUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(lsUser);
-    } catch (error) {
-      this.user = undefined;
-    }
+  constructor(private http: HttpClient) {
   }
 
-  login() {
-    this.user = {
-      id:'5fa64a9f2183ce1728ff371a',
-      username: 'Miro',
-      email: 'miroslav@abv.bg',
-      phone: 'xxx-xxx-xxxx',
-      password: '123321'
-    };
+  login(email: string, password: string) {
+    return this.http.post<any>('/api/login', { email, password });
+  }
 
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  register(username: string, email: string, password: string, rePassword: string, tel: string) {
+    return this.http.post<any>('/api/register', { username, email, password, rePassword, tel });
   }
 
   logout() {
-    this.user = undefined;
-    localStorage.clear();
+
   }
 }

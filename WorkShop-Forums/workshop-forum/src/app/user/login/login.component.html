@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="login" #form="ngForm" (ngSumbit)="handleLogin()">
+    <form class="login" #form="ngForm" (ngSumbit)="handleLogin(form)">
 
         <fieldset>
             <h2>Login Form</h2>
@@ -21,19 +21,20 @@
 
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" name="password" id="password" placeholder="******" required ngModel #inputPassword="ngModel" minlength="5">
+                <input type="password" name="password" id="password" placeholder="******" required ngModel
+                #inputPassword="ngModel" minlength="5">
             </p>
 
             <ng-container *ngIf="inputPassword.touched">
                 <p class="error" *ngIf="inputPassword.errors?.['required']">
-                Password is required!
-            </p>
-            <p class="error" *ngIf="inputPassword.errors?.['minlength']">
-                Password must be at least 5 characters!
-            </p>
+                    Password is required!
+                </p>
+                <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+                    Password must be at least 5 characters!
+                </p>
             </ng-container>
 
-            <button (click)="login($event)">Login</button>
+            <button disabled>Login</button>
 
             <p class="text-center">
                 Have an account?

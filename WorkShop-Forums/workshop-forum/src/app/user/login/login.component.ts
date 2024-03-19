@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private userService: UserService, private routes: Router) { }
+  constructor(private userService: UserService, private routes: Router, form: NgForm) { }
 
-  login(event: Event) {
-    event.preventDefault();
-    this.userService.login();
-    this.routes.navigate(['/home'])
-  }
 
-  handleLogin() {
+  handleLogin(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
 
+    const { email, password } = form.value;
+
+    this.userService.login(email, password).subscribe(user => {
+      this.userService.user = user;
+      this.routes.navigate(['/themes'])
+    });
   }
 }
